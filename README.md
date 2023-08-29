@@ -1,7 +1,12 @@
-# LearnDesignPatterns
+# Learn Design Patterns
 
 
-**Core Java Design Patterns** 
+
+
+### **Design Patterns are the well proved solution of commonly occurring problem in software design.**
+
+
+**Core Java Design Patterns**
 
 In core java, there are mainly three types of design patterns, which are further divided into their sub-parts:
 
