@@ -15,7 +15,11 @@ public class SingletonLazy {
     public static synchronized SingletonLazy getsingletonP(){
 //Object of this class
         if(singletonLazy == null){
-            singletonLazy = new SingletonLazy();
+            synchronized(SingletonLazy.class){
+                if (singletonLazy==null){
+                    singletonLazy = new SingletonLazy();
+                }
+            }
         }
         return singletonLazy;
 
