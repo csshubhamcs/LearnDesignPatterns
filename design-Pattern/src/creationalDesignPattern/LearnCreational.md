@@ -70,6 +70,8 @@ private static LibraryManager instance;
 }
 ```
 
+**Note :** using synchronous method we restrict the thread to execute the method one by one , but it may be also block the rest of the code instead of creating object so , we create a synchronous block only.
+
 
 **NOTE :** Using volatile ensures that changes to the instance are visible across threads, and the double-checked locking pattern helps improve performance.
 
@@ -96,3 +98,5 @@ private static volatile LazySingleton instance;
 }
 ``````
 _In summary,_ the decision between eager and lazy initialization depends on your application's requirements. Eager initialization is suitable when the startup cost is low, and you want to ensure that the instance is ready to use from the beginning. Lazy initialization is preferable when the startup cost is high or the instance might not be needed immediately, helping to improve startup times.
+
+**Note:** _we can break a singleton design pattern using ReflectionAPI in Runtime_
