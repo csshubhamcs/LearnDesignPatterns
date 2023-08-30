@@ -100,3 +100,20 @@ private static volatile LazySingleton instance;
 _In summary,_ the decision between eager and lazy initialization depends on your application's requirements. Eager initialization is suitable when the startup cost is low, and you want to ensure that the instance is ready to use from the beginning. Lazy initialization is preferable when the startup cost is high or the instance might not be needed immediately, helping to improve startup times.
 
 **Note:** _we can break a singleton design pattern using ReflectionAPI in Runtime_
+
+
+**Significance of Classloader in Singleton Pattern**
+
+If singleton class is loaded by two classloaders, two instance of singleton class will be created, one for each classloader.
+**Significance of Serialization in Singleton Pattern**
+If singleton class is Serializable, you can serialize the singleton instance. Once it is serialized, you can deserialize it but it will not return the singleton object.
+
+To resolve this issue, you need to override the readResolve() method that enforces the singleton. It is called just after the object is deserialized. It returns the singleton object.
+
+```public class A implements Serializable {  
+//your code of singleton  
+protected Object readResolve() {  
+return getInstance(); 
+}
+
+} ``` 
